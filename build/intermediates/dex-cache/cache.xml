@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="3469cb457f10f74c28cbc05f069b6c894f6cbdd0">
+        <dex dex="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.2.1_aaea52451606cacc2ab7cba559736a341b017010/classes.dex" />
+    </item>
+    <item
+        jar="/Users/cebert/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.5.0/4de2b4ed3445c37ec1720a7d214712e845a24636/okhttp-2.5.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="4de2b4ed3445c37ec1720a7d214712e845a24636">
+        <dex dex="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/transforms/dex/debug/folders/1000/10/okhttp-2.5.0_5b1c0c93a65ed4233527c69c112f3a898fbe9ef4/classes.dex" />
+    </item>
+    <item
+        jar="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/exploded-aar/com.android.support/design/23.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-23.1.1_fd49c48f404b74034b67ddc69a1ffea5ce63c793/classes.dex" />
+    </item>
+    <item
+        jar="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/exploded-aar/com.github.afollestad.material-dialogs/core/0.8.5.7/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="a94e3ac390a37f149a235f7f5e1b49b65151c0bf">
+        <dex dex="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.github.afollestad.material-dialogs-core-0.8.5.7_1af3d5fc1797e16d93a50f58d56663dfd7f44357/classes.dex" />
+    </item>
+    <item
+        jar="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="673d77a5bbddd766037f088e775df525c46407f0">
+        <dex dex="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.2.1_e5fb1358cbc413bcb136c92389346d3ba4bd9bb6/classes.dex" />
+    </item>
+    <item
+        jar="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="e3885783ff8926ed9e2fdcd16816c2e1e73e7aee">
+        <dex dex="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.2.1_60e34ee58e86e3626d977177497a8f47b2ad4e12/classes.dex" />
+    </item>
+    <item
+        jar="/Users/cebert/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/transforms/dex/debug/folders/1000/10/library-2.4.0_ec4629d20f20fb31d647ab0fd562ea175d8cb130/classes.dex" />
+    </item>
+    <item
+        jar="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="fef2b3e4b6b1b0e5fe7b69fa137a5fa55a3182ab">
+        <dex dex="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-8.4.0_4652450a2e3d0ed4d65afa7444082e89deccb6cc/classes.dex" />
+    </item>
+    <item
+        jar="/Users/cebert/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.2.1/support-annotations-23.2.1.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="ccb693bc0774fcb637246f7360de25b4af7df318">
+        <dex dex="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.2.1_1a80764efae14df42cc039c255a2ebfa8f828a83/classes.dex" />
+    </item>
+    <item
+        jar="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/libs/internal_impl-23.2.1.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="607a3d0b8013b4ccbfeb0b7cb293351994e021fb">
+        <dex dex="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.2.1_33dcdcfac72b391ca8e49bfad9c3cc2f55b2d67b/classes.dex" />
+    </item>
+    <item
+        jar="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="9b0b274c9153e99e40f41034bbfe60c0eef838ea">
+        <dex dex="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_2c27aa2551770298084fa1218dc6938692ed3aaa/classes.dex" />
+    </item>
+    <item
+        jar="/Users/cebert/.gradle/caches/modules-2/files-2.1/net.simonvt.schematic/schematic-annotations/0.6.3/4df5a4bbbacf9ea3c4aebf7d3c61465afb648e36/schematic-annotations-0.6.3.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="4df5a4bbbacf9ea3c4aebf7d3c61465afb648e36">
+        <dex dex="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/transforms/dex/debug/folders/1000/10/schematic-annotations-0.6.3_43278462dd53a0c80591d6fef81c368ae21602e3/classes.dex" />
+    </item>
+    <item
+        jar="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/8.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="2d7fe76982677315c4dc4edfb459c8ca718a9d4c">
+        <dex dex="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-gcm-8.4.0_d8ca751bf5e6027fda3b6c226e4eb98bc2dce2d7/classes.dex" />
+    </item>
+    <item
+        jar="/Users/cebert/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.6.0/98476622f10715998eacf9240d6b479f12c66143/okio-1.6.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/transforms/dex/debug/folders/1000/10/okio-1.6.0_3b083103a388960348eea027bb65615050197e17/classes.dex" />
+    </item>
+    <item
+        jar="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-measurement/8.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="613298b7aa012f121ce542881c0a599ebd8078f2">
+        <dex dex="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-measurement-8.4.0_f1854b486a67c9bd51f3103d2a5fba9c60cdd882/classes.dex" />
+    </item>
+    <item
+        jar="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/exploded-aar/me.zhanghai.android.materialprogressbar/library/1.1.5/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="4a9f97c742d058ca55948643c06f447895a9af76">
+        <dex dex="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/transforms/dex/debug/folders/1000/10/me.zhanghai.android.materialprogressbar-library-1.1.5_912deb1ce91ae29894677b2e4bcc63900d4f2a2f/classes.dex" />
+    </item>
+    <item
+        jar="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="013b923c2491dfe991c46da92b29816df8e9f570">
+        <dex dex="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_2afce32f73b5203f79b364f4f284a40d0bd47b6d/classes.dex" />
+    </item>
+    <item
+        jar="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="e4d0cbb0b999604b349062f0214a0a228a7fd151">
+        <dex dex="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.2.1_2c2b77fbc124d712415af31032bd3f0175e9fb6b/classes.dex" />
+    </item>
+    <item
+        jar="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/exploded-aar/com.melnykov/floatingactionbutton/1.2.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="65620ba5e576dcec2c86efa440b00d042a27383b">
+        <dex dex="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.melnykov-floatingactionbutton-1.2.0_d4714589467b8ae7b3848684865dff27ab5d485a/classes.dex" />
+    </item>
+    <item
+        jar="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="3be474b1b21b31cf2fa93fe6bd641ae108d96452">
+        <dex dex="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.2.1_499d065d6eb9c708cfb378c0f093e07c81cc2e9f/classes.dex" />
+    </item>
+    <item
+        jar="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/exploded-aar/net.simonvt.schematic/schematic/0.6.3/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="f6f5730f19d22f177096c8d134d4892b0fbd631d">
+        <dex dex="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/transforms/dex/debug/folders/1000/10/net.simonvt.schematic-schematic-0.6.3_45af24ebfc51464d3d929dcb8bbbfccfd5deda02/classes.dex" />
+    </item>
+    <item
+        jar="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
+        <dex dex="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-8.4.0_191cfc110c5a4cae16ddd1cd1797cba805b4ec9e/classes.dex" />
+    </item>
+
+</items>
