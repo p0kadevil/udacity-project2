@@ -11,4 +11,5 @@
   <string name="input_prefill"></string>
   <string name="network_toast">This app requires an internet connection. Please connect and restart the app.</string>
   <string name="no_stock_found">Stock %@ not found!</string>
+  <string name="add_stock_content_desc">Add a stock</string>
 </resources>
