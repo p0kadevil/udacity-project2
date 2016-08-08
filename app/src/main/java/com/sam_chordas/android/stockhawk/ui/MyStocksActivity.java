@@ -1,6 +1,7 @@
 package com.sam_chordas.android.stockhawk.ui;
 
 import android.app.LoaderManager;
+import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.CursorLoader;
@@ -10,6 +11,7 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
@@ -18,6 +20,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.InputType;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -38,6 +41,19 @@ import com.google.android.gms.gcm.PeriodicTask;
 import com.google.android.gms.gcm.Task;
 import com.melnykov.fab.FloatingActionButton;
 import com.sam_chordas.android.stockhawk.touch_helper.SimpleItemTouchHelperCallback;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class MyStocksActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>{
 
@@ -63,6 +79,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
   private boolean mReceiverRegistered;
 
   private TextView mTextViewConnection;
+  private ProgressDialog mProgressDialog;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -102,9 +119,10 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
     mCursorAdapter = new QuoteCursorAdapter(this, null);
     recyclerView.addOnItemTouchListener(new RecyclerViewItemClickListener(this,
             new RecyclerViewItemClickListener.OnItemClickListener() {
-              @Override public void onItemClick(View v, int position) {
-                //TODO:
-                // do something on item click
+              @Override
+              public void onItemClick(View v, int position) {
+                mCursor.moveToPosition(position);
+                new HistoricalDataAsyncTask(mCursor.getString(mCursor.getColumnIndex("symbol"))).execute();
               }
             }));
     recyclerView.setAdapter(mCursorAdapter);
@@ -263,4 +281,86 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
       Toast.makeText(MyStocksActivity.this, getString(R.string.no_stock_found).replace("%@", stockName), Toast.LENGTH_LONG).show();
     }
   }
+
+  private class HistoricalDataAsyncTask extends AsyncTask<Void, Void, ArrayList<JSONObject>> {
+
+    private String mSymbol;
+    private String mStringResponse;
+    ArrayList<JSONObject> mContentVals;
+
+    public HistoricalDataAsyncTask(String symbol){
+      mSymbol = symbol;
+    }
+
+    @Override
+    protected void onPostExecute(ArrayList<JSONObject> contentVals) {
+      super.onPostExecute(contentVals);
+
+      if(mProgressDialog != null && mProgressDialog.isShowing())
+        mProgressDialog.dismiss();
+
+      ArrayList<String> endValues = new ArrayList<>();
+      ArrayList<String> dates = new ArrayList<>();
+
+      for(JSONObject jsonObject : mContentVals)
+      {
+        try
+        {
+          endValues.add(jsonObject.getString("Close"));
+          dates.add(jsonObject.getString("Date"));
+        }
+        catch (JSONException e)
+        {
+          e.printStackTrace();
+        }
+      }
+
+      Intent intent = new Intent(MyStocksActivity.this, LineGraphActivity.class);
+      intent.putStringArrayListExtra("endValues", endValues);
+      intent.putStringArrayListExtra("dates", dates);
+      startActivity(intent);
+    }
+
+    @Override
+    protected ArrayList<JSONObject> doInBackground(Void... params) {
+
+      Date now = new Date();
+
+      Calendar c = Calendar.getInstance();
+      c.setTime(now);
+      c.add(Calendar.MONTH, -6);
+
+      SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+      OkHttpClient client = new OkHttpClient();
+      Request request = new Request.Builder()
+              .url("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.historicaldata%20where%20symbol%20%3D%20'" + mSymbol + "'%20and%20startDate%20%3D%20'" + sdf.format(c.getTime()) + "'%20and%20endDate%20%3D%20'" + sdf.format(now) + "'&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=")
+              .build();
+
+      Response response;
+
+      try
+      {
+        response = client.newCall(request).execute();
+        mStringResponse = response.body().string();
+        mContentVals = Utils.quoteJsonToContentVals(MyStocksActivity.this, mStringResponse, true);
+      }
+      catch (IOException e)
+      {
+        e.printStackTrace();
+      }
+
+      return mContentVals;
+    }
+
+    @Override
+    protected void onPreExecute() {
+      super.onPreExecute();
+
+      mProgressDialog = ProgressDialog.show(MyStocksActivity.this, "Bitte warten",
+              "Daten werden abgerufen...", true);
+    }
+  }
 }
+
+

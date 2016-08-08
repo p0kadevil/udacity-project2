@@ -1,12 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" >
-
-    <item
-        jar="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        revision="23.0.1"
-        sha1="51b74ff2c2da9ca3f0c38267a8f30211ed9a0240">
-        <dex dex="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_2c27aa2551770298084fa1218dc6938692ed3aaa/classes.dex" />
-    </item>
-
-</items>
+<items version="2" />

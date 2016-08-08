@@ -23,8 +23,10 @@ public class Utils {
 
   public static boolean showPercent = true;
 
-  public static ArrayList quoteJsonToContentVals(final Context context, String JSON){
+  public static ArrayList quoteJsonToContentVals(final Context context, String JSON, boolean asJSONObjects){
     ArrayList<ContentProviderOperation> batchOperations = new ArrayList<>();
+    ArrayList<JSONObject> jsonObjects = new ArrayList<>();
+
     JSONObject jsonObject = null;
     JSONArray resultsArray = null;
     try{
@@ -61,7 +63,11 @@ public class Utils {
           if (resultsArray != null && resultsArray.length() != 0){
             for (int i = 0; i < resultsArray.length(); i++){
               jsonObject = resultsArray.getJSONObject(i);
-              batchOperations.add(buildBatchOperation(jsonObject));
+
+              if(!asJSONObjects)
+                batchOperations.add(buildBatchOperation(jsonObject));
+              else
+                jsonObjects.add(jsonObject);
             }
           }
         }
@@ -69,7 +75,7 @@ public class Utils {
     } catch (JSONException e){
       Log.e(LOG_TAG, "String to JSON failed: " + e);
     }
-    return batchOperations;
+    return asJSONObjects ? jsonObjects : batchOperations;
   }
 
   public static String truncateBidPrice(String bidPrice){
