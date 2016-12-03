@@ -1,18 +1,5 @@
 <!-- Put the egyptian translation here -->
 
 <resources>
-    <string name="app_name">Stock Hawk</string>
 
-    <string name="action_example">Example action</string>
-
-    <string name="action_settings">Settings</string>
-    <string name="action_change_units">Change Units</string>
-    <string name="symbol_search">Symbol Search</string>
-    <string name="content_test">Search for a Stock Symbol</string>
-    <string name="input_hint">FB</string>
-    <string name="input_prefill"></string>
-    <string name="network_toast">This app requires an internet connection. Please connect and restart the app.</string>
-    <string name="no_stock_found">Stock %@ not found!</string>
-    <string name="add_stock_content_desc">Add a stock</string>
-    <string name="detail_graph_headline">Price over time (last 6 months)</string>
 </resources>

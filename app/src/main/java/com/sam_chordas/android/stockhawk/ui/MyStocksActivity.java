@@ -20,7 +20,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.InputType;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -44,12 +43,9 @@ import com.sam_chordas.android.stockhawk.touch_helper.SimpleItemTouchHelperCallb
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.IOException;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -61,7 +57,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
    * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
    */
 
-  public static String BROADCAST_NO_STOCK_FOUND = "com.sam_chordas.android.stockhawk.no_stock_found";
+  public static String BROADCAST_NO_STOCK_FOUND;
 
   /**
    * Used to store the last screen title. For use in {@link #restoreActionBar()}.
@@ -86,6 +82,8 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
     super.onCreate(savedInstanceState);
     mContext = this;
 
+    BROADCAST_NO_STOCK_FOUND = getString(R.string.broadcast_stock_not_found);
+
     if(!mReceiverRegistered)
     {
       mReceiver = new NoStockFoundReceiver();
@@ -106,7 +104,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
     if (savedInstanceState == null)
     {
       // Run the initialize task service so that some stocks appear upon an empty database
-      mServiceIntent.putExtra("tag", "init");
+      mServiceIntent.putExtra(getString(R.string.m_tag), getString(R.string.m_init));
       if (isConnected)
       {
         startService(mServiceIntent);
@@ -122,7 +120,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
               @Override
               public void onItemClick(View v, int position) {
                 mCursor.moveToPosition(position);
-                new HistoricalDataAsyncTask(mCursor.getString(mCursor.getColumnIndex("symbol"))).execute();
+                new HistoricalDataAsyncTask(mCursor.getString(mCursor.getColumnIndex(getString(R.string.symbol)))).execute();
               }
             }));
     recyclerView.setAdapter(mCursorAdapter);
@@ -151,15 +149,15 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
                     new String[] { input.toString() }, null);
                 if (c.getCount() != 0) {
                   Toast toast =
-                      Toast.makeText(MyStocksActivity.this, "This stock is already saved!",
+                      Toast.makeText(MyStocksActivity.this, getString(R.string.stock_already_saved),
                           Toast.LENGTH_LONG);
                   toast.setGravity(Gravity.CENTER, Gravity.CENTER, 0);
                   toast.show();
                   return;
                 } else {
                   // Add the stock to DB
-                  mServiceIntent.putExtra("tag", "add");
-                  mServiceIntent.putExtra("symbol", input.toString());
+                  mServiceIntent.putExtra(getString(R.string.m_tag), getString(R.string.m_add));
+                  mServiceIntent.putExtra(getString(R.string.symbol), input.toString());
                   startService(mServiceIntent);
                 }
               }
@@ -176,7 +174,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
     if (isConnected){
       long period = 3600L;
       long flex = 10L;
-      String periodicTag = "periodic";
+      String periodicTag = getString(R.string.m_periodic);
 
       // create a periodic task to pull stocks once every hour after the app has been opened. This
       // is so Widget data stays up to date.
@@ -277,8 +275,8 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
     @Override
     public void onReceive(Context context, Intent intent) {
 
-      String stockName = intent.hasExtra("name") ? "\"" + intent.getStringExtra("name") + "\"" : "with this name";
-      Toast.makeText(MyStocksActivity.this, getString(R.string.no_stock_found).replace("%@", stockName), Toast.LENGTH_LONG).show();
+      String stockName = intent.hasExtra(getString(R.string.m_name)) ? "\"" + intent.getStringExtra(getString(R.string.m_name)) + "\"" : getString(R.string.with_this_name);
+      Toast.makeText(MyStocksActivity.this, getString(R.string.no_stock_found).replace(getString(R.string.m_string_placeholder), stockName), Toast.LENGTH_LONG).show();
     }
   }
 
@@ -306,8 +304,8 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
       {
         try
         {
-          endValues.add(jsonObject.getString("Close"));
-          dates.add(jsonObject.getString("Date"));
+          endValues.add(jsonObject.getString(getString(R.string.m_close)));
+          dates.add(jsonObject.getString(getString(R.string.m_date)));
         }
         catch (JSONException e)
         {
@@ -316,8 +314,8 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
       }
 
       Intent intent = new Intent(MyStocksActivity.this, LineGraphActivity.class);
-      intent.putStringArrayListExtra("endValues", endValues);
-      intent.putStringArrayListExtra("dates", dates);
+      intent.putStringArrayListExtra(getString(R.string.m_end_values), endValues);
+      intent.putStringArrayListExtra(getString(R.string.m_dates), dates);
       startActivity(intent);
     }
 
@@ -330,11 +328,14 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
       c.setTime(now);
       c.add(Calendar.MONTH, -6);
 
-      SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+      SimpleDateFormat sdf = new SimpleDateFormat(getString(R.string.default_date_format));
 
       OkHttpClient client = new OkHttpClient();
       Request request = new Request.Builder()
-              .url("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.historicaldata%20where%20symbol%20%3D%20'" + mSymbol + "'%20and%20startDate%20%3D%20'" + sdf.format(c.getTime()) + "'%20and%20endDate%20%3D%20'" + sdf.format(now) + "'&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=")
+              .url(getString(R.string.url_yahoo_finance_1) + "'" +
+                      mSymbol + "'" + getString(R.string.url_yahoo_finance_2) + "'" +
+                      sdf.format(c.getTime()) + "'" + getString(R.string.url_yahoo_finance_3) + "'" +
+                      sdf.format(now) + "'" + getString(R.string.url_yahoo_finance_4))
               .build();
 
       Response response;
@@ -357,8 +358,8 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
     protected void onPreExecute() {
       super.onPreExecute();
 
-      mProgressDialog = ProgressDialog.show(MyStocksActivity.this, "Bitte warten",
-              "Daten werden abgerufen...", true);
+      mProgressDialog = ProgressDialog.show(MyStocksActivity.this, getString(R.string.please_wait),
+              getString(R.string.loading_data), true);
     }
   }
 }

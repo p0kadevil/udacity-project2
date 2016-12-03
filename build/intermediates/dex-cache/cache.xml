@@ -7,7 +7,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.1"
-        sha1="6462c0aaeefc6be87b2996dd4b54720251b929ca">
+        sha1="386f7e3e5bbcb5bdd6e1c0537cad25d55368431c">
         <dex dex="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_2c27aa2551770298084fa1218dc6938692ed3aaa/classes.dex" />
     </item>
     <item
@@ -25,7 +25,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.1"
-        sha1="5c17c2b43d2bffd7c0eadcb9e430036677fe9461">
+        sha1="1aef241063f36f573cfb888ef0117e4290bf4ebd">
         <dex dex="/Users/cebert/Documents/git/udacity/StockHawk/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_2afce32f73b5203f79b364f4f284a40d0bd47b6d/classes.dex" />
     </item>
     <item
