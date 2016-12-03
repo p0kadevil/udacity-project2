@@ -13,4 +13,6 @@
   <string name="no_stock_found">Stock %@ not found!</string>
   <string name="add_stock_content_desc">Add a stock</string>
   <string name="detail_graph_headline">Price over time (last 6 months)</string>
+  <string name="widget_title">My Stocks</string>
+  <string name="symbol">symbol</string>
 </resources>
